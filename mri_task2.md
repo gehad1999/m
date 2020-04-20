@@ -17,26 +17,26 @@
 *   The code for presenting point 2.a :
  
  
-import random \
-import matplotlib.pyplot as plt \
-import numpy as np \
+import random\
+import matplotlib.pyplot as plt\
+import numpy as np\
 
 \
-x = np.arange(0, 150, 1) \
-y = [] \
+x = np.arange(0, 150, 1)\
+y = []\
 
 for d in range(len(x)):\
-     y.append(random.randrange(1000,1500)) \
+     y.append(random.randrange(1000,1500))\
 
 plt.subplot(211)\
-plt.ylabel('Bo') \
-plt.plot(x, y) \
-y2 = [] \
+plt.ylabel('Bo')\
+plt.plot(x, y)\
+y2 = []\
 
 for d in range(len(x)):\
-    y2.append(random.randrange(43*100,43*150)) \
+    y2.append(random.randrange(43*100,43*150))\
 plt.subplot(212)\
-plt.ylabel('GBo') \
-plt.xlabel('Distribution of External magnetic field along body') \
-plt.plot(x, y2)  \
+plt.ylabel('GBo')\
+plt.xlabel('Distribution of External magnetic field along body')\
+plt.plot(x, y2)\
 plt.show()\
