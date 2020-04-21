@@ -171,4 +171,4 @@ for d in range (N):\
     plt.pause(1e-17)\
     time.sleep(0.01)\
 plt.show()\
-*![](./Figure_1.png)
+*![](./Figure_2.png)
