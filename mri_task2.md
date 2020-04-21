@@ -85,7 +85,7 @@ plt.show()
 
 ### Results :
 
-![](trajectory.gif)
+![](ezgif.com-video-to-gif.gif)
 
 ### Source Code of 2.b :
 import numpy as np\
