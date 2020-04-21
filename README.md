@@ -85,7 +85,7 @@ plt.show()
 
 ### Results :
 
-![](mri2b.GIF)
+![](trajectory.gif)
 
 ### Source Code of 2.b :
 import numpy as np\
