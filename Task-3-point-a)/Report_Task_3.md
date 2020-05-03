@@ -9,7 +9,7 @@
 ## Reham Abdelfatah
 ## Nancy Salah
 
-### Trajectory at any point:
+# Trajectory at any point in the phantom:
 Each color in MRI image represents a different material, each material has different T1&T2(Relaxation and decay time), we have an image with shape 4by4 which means 16 pixel each pixel represents the value of color that carries, each color value refers to kind of material with different value of T1&T2 according to the B0 value of the external source of magnetic field, so here we will select any point of the phantom that we has then take its T1&T2 values in drawing the trajectory of this point from the space.
 
 ###  Source Code :
@@ -31,7 +31,7 @@ from IPython.display import HTML
 
 ### Input image is in shape 400x600,(widthxheight).
 FILENAME='wvsb.png'
-# 'LA' for grey scale of image 'RGB' for rgb\ 
+### 'LA' for grey scale of image 'RGB' for rgb.
 im=Image.open(FILENAME).convert('LA')\
 print (im)
 ### Converting the opened image into array to read its data.
@@ -45,7 +45,7 @@ print((data.ndim))
 data2 = data.reshape((data.shape[0]), data.shape[1])
 
 
-# summarize shape
+### summarize shape
 print('shape',data2.shape)\
 print('dim',data2.ndim)\
 print(data2[3][0],'data of row 4','size of row 4',data2[3].size)
@@ -154,7 +154,7 @@ fig=plt.show()
 
 
 
-### The trajectory which will be shown is of point[at row=0,at col=0](point at 2D has one color represents one material) at space in 3T :
+# The trajectory which will be shown is of point[at row=0,at col=0](point at 2D has one color represents one material) at space in 3T :
 ### IF we want to represent another point which may have another color that refers to another material refers to T1 & T2 different in ddrawing the trajectory, we'll use T1[1or2or3......]&T2[1or2or3.....] which represent another point in our phantom by changing the index inside the list of T1 andT2 to call the values of T1&T2 for the selected index which refers to one point in our phantom which has 16 points.
 ![](onepoint.gif)
 
