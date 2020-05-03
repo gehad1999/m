@@ -156,7 +156,7 @@ fig=plt.show()\
 
 
 ### The trajectory of point[at row=0,at col=0](point at 2D has one color represents one material) at space in 3T :
-### for reprentation of another point which may have another color that refers to another material refers to T1 & T2 different in ddrawing the trajectory.
+### for reprentation of another point which may have another color that refers to another material refers to T1 & T2 different in ddrawing the trajectory, we'll use T1[1or2or3......]&T2[1or2or3.....] which represent another point in our phantom by changing the index inside the list of T1 andT2 to call the values of T1&T2 for the selected index which refers to one point in our phantom which has 16 points.
 ![](onepoint.gif)
 
 *![](./3001,forT1[0],ofwhitecolor.PNG)
