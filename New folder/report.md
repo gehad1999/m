@@ -10,7 +10,7 @@
 ## Nancy Salah
 
 ### Trajectory at any point:
-* 
+Each color in MRI image represents a different material, each material has diffent T1&T2(Relaxation and decay time), we have an image with shape 4by4 which means 16 pixel each pixel represents the value of color that carries, each color value refers to kind of material with different value of T1&T2 according to the B0 value of the external source of magnetic field, so here we will select any point of the phantom that we has then take its T1&T2 values in drawing the trajectory of this point in space.
 
 ###  Source Code :
 import PIL\
@@ -23,24 +23,24 @@ import matplotlib.pyplot as plt\
 import math\
 import time\
 import pylab\
-import random \ 
+import random\ 
 import matplotlib.animation\
 from matplotlib import animation, rc\
 from matplotlib import animation\
 from IPython.display import HTML
 
-### Input image is in shape 400*600,(width*height).
+### Input image is in shape 400x600,(widthxheight).
 FILENAME='wvsb.png' #image can be in gif jpeg or png format\ 
 #'LA' for grey scale of image 'RGB' for rgb\ 
 im=Image.open(FILENAME).convert('LA')\
-print (im)\
+print (im)
 ### Converting the opened image into array to read its data.
-data = asarray(im)\
+data = asarray(im)
 ### Change the size of input photo to get data of phantom 4*4.
 data = zoom(data, (0.01, 0.0067, 0.5))\
 print('shapenew',data.shape)\
 print(type(data))\
-print((data.ndim))\
+print((data.ndim))
 ### Convert the 3D image into 2D image.
 data2 = data.reshape((data.shape[0]), data.shape[1])\
 
@@ -71,17 +71,17 @@ T1=list(arr)\
 T2=list(arr)\
 for index, item in enumerate(T1):\
 ### 255 is white color we assumed white color represents the water material.
-    if item==255 :\
-        T1[index] =40000\
-        T2[index]= 20000\  
+    if item==255 :
+        T1[index] =40000
+        T2[index]= 20000
 ### 0 is black color we assumed black color represents the fat material.
-    if item==0 :\   
-        T1[index] = 60000\
-        T2[index]= 20000\
+    if item==0 :
+        T1[index] = 60000
+        T2[index]= 20000
 ### represents third material by third color.
-    if item==78 :\
-        T1[index] =40000\
-        T2[index]= 10000\
+    if item==78 :
+        T1[index] =40000
+        T2[index]= 10000
 print('T1 for points of our phantom',T1)\
 print('T2 for points of our phantom',T2)\
 #print(data2)\
@@ -89,12 +89,13 @@ print('The array of color value for each point in the phantom shape',asarray(arr
 print('The array of color value for each point in the phantom size',asarray(arr).size)\
 print('The array of color value for each point in the phantom type',asarray(arr).dtype)\
 print('The array of color value for each point in the phantom dimension',asarray(arr).ndim)\
-print('The array of color value for each point in the phantom length',len(asarray(arr)))\
+print('The array of color value for each point in the phantom length',len(asarray(arr)))
 
 ### Applying the drawing of trajectory on our new data.
 ### Data which comes from the input photo, we select one point from our phantom.
 ### The variables of this points are T1&T2, They needed in drawing the trajectory for a point from resized photo which represents the phantom in shape(4*4).
 ### T[0]--> zero index refers the position of selected point, means the point at row=0&col=0, 1--> point at at row=0&col=1 .....2,3,4(represents the index of col at row=0), 5--> point at row=1&col=0.
+
 dT = 100\	
 T = 100000\
 df = []\
@@ -119,7 +120,7 @@ def freepression(T,T1,T2,df,i):\
        [0 ,E2, 0],\
        [0, 0 ,E1]]\
   resultA = np.dot(A,Rz)\
-  return (resultA,B	)\
+  return (resultA,B	)
 
 def decay(i):\
   A,B=[],[]\
@@ -139,7 +140,7 @@ timedata = np.arange(N)\
 axes = pylab.gca()\
 axes.set_xlim(-1,1)\
 axes.set_ylim(-1,1)\
-line,=axes.plot(xdata,ydata,'b-') \    
+line,=axes.plot(xdata,ydata,'b-')\   
 pylab.subplot(111)\
 for d in range (N):\
     xdata.append(M[d,0])\
@@ -149,14 +150,14 @@ for d in range (N):\
     plt.draw()\
     plt.pause(1e-17)\
     time.sleep(0.01)\
-fig=plt.show()\
+fig=plt.show()
 
 
 
 
 
-### The trajectory of point[at row=0,at col=0](point at 2D has one color represents one material) at space in 3T :
-### for reprentation of another point which may have another color that refers to another material refers to T1 & T2 different in ddrawing the trajectory, we'll use T1[1or2or3......]&T2[1or2or3.....] which represent another point in our phantom by changing the index inside the list of T1 andT2 to call the values of T1&T2 for the selected index which refers to one point in our phantom which has 16 points.
+### The trajectory which will be shown is of point[at row=0,at col=0](point at 2D has one color represents one material) at space in 3T :
+### IF we want to represent another point which may have another color that refers to another material refers to T1 & T2 different in ddrawing the trajectory, we'll use T1[1or2or3......]&T2[1or2or3.....] which represent another point in our phantom by changing the index inside the list of T1 andT2 to call the values of T1&T2 for the selected index which refers to one point in our phantom which has 16 points.
 ![](onepoint.gif)
 
 *![](./3001,forT1[0],ofwhitecolor.PNG)
