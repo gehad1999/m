@@ -10,8 +10,7 @@
 ## Nancy Salah
 
 ### Trajectory at any point:
-* Firstly we open an image which is too large in shpape so we zoom it to get smaller shape then it was a 3D image we convert it into 2D
-![](K-Space.png)  
+* 
 
 ###  Source Code :
 import PIL\
@@ -24,36 +23,36 @@ import matplotlib.pyplot as plt\
 import math\
 import time\
 import pylab\
-import random\ 
+import random \ 
 import matplotlib.animation\
 from matplotlib import animation, rc\
 from matplotlib import animation\
-from IPython.display import HTML\
+from IPython.display import HTML
 
-### Input image is in shape 400*600,(width*height).\
+### Input image is in shape 400*600,(width*height).
 FILENAME='wvsb.png' #image can be in gif jpeg or png format\ 
 #'LA' for grey scale of image 'RGB' for rgb\ 
 im=Image.open(FILENAME).convert('LA')\
 print (im)\
-### Converting the opened image into array to read its data.\
+### Converting the opened image into array to read its data.
 data = asarray(im)\
-### Change the size of input photo to get data of phantom 4*4.\
+### Change the size of input photo to get data of phantom 4*4.
 data = zoom(data, (0.01, 0.0067, 0.5))\
 print('shapenew',data.shape)\
 print(type(data))\
 print((data.ndim))\
-### Convert the 3D image into 2D image.\
+### Convert the 3D image into 2D image.
 data2 = data.reshape((data.shape[0]), data.shape[1])\
 
 
-# summarize shape\
+# summarize shape
 print('shape',data2.shape)\
 print('dim',data2.ndim)\
 print(data2[3][0],'data of row 4','size of row 4',data2[3].size)\
 #data3=data2.resize((4, 4))\
 
 
-### Put the data of the input image in array\
+### Put the data of the input image in array
 rows, cols = (4, 4)\
 arr=[]\
 for i in range (rows):\ 
@@ -63,23 +62,23 @@ for i in range (rows):\
       T2=[]\
       row.append((data[i][j]))\
       arr.append(np.concatenate(row))\
-### Read the data of each point int the phantom which represents different values of color.\
-### Each value(color) represents different material in our phantom.\
+### Read the data of each point int the phantom which represents different values of color.
+### Each value(color) represents different material in our phantom.
       print(i ,j, data[i][j] )\
 arr=np.concatenate(arr)\
-### Make a list for color value of each point, then mapping these color values to the corresponding values that they have for T1&T2.\
+### Make a list for color value of each point, then mapping these color values to the corresponding values that they have for T1&T2.
 T1=list(arr)\
 T2=list(arr)\
 for index, item in enumerate(T1):\
-### 255 is white color we assumed white color represents the water material\
+### 255 is white color we assumed white color represents the water material.
     if item==255 :\
         T1[index] =40000\
         T2[index]= 20000\  
-### 0 is black color we assumed black color represents the fat material\
+### 0 is black color we assumed black color represents the fat material.
     if item==0 :\   
         T1[index] = 60000\
         T2[index]= 20000\
-### represents third material by third color\ 
+### represents third material by third color.
     if item==78 :\
         T1[index] =40000\
         T2[index]= 10000\
@@ -92,10 +91,10 @@ print('The array of color value for each point in the phantom type',asarray(arr)
 print('The array of color value for each point in the phantom dimension',asarray(arr).ndim)\
 print('The array of color value for each point in the phantom length',len(asarray(arr)))\
 
-### Applying the drawing of trajectory on our new data.\
-### Data which comes from the input photo, we select one point from our phantom.\
-### The variables of this points are T1&T2, They needed in drawing the trajectory for a point from resized photo which represents the phantom in shape(4*4).\
-### T[0]--> zero index refers the position of selected point, means the point at row=0&col=0, 1--> point at at row=0&col=1 .....2,3,4(represents the index of col at row=0), 5--> point at row=1&col=0.\
+### Applying the drawing of trajectory on our new data.
+### Data which comes from the input photo, we select one point from our phantom.
+### The variables of this points are T1&T2, They needed in drawing the trajectory for a point from resized photo which represents the phantom in shape(4*4).
+### T[0]--> zero index refers the position of selected point, means the point at row=0&col=0, 1--> point at at row=0&col=1 .....2,3,4(represents the index of col at row=0), 5--> point at row=1&col=0.
 dT = 100\	
 T = 100000\
 df = []\
@@ -120,7 +119,6 @@ def freepression(T,T1,T2,df,i):\
        [0 ,E2, 0],\
        [0, 0 ,E1]]\
   resultA = np.dot(A,Rz)\
- # d+=1\
   return (resultA,B	)\
 
 def decay(i):\
@@ -141,7 +139,7 @@ timedata = np.arange(N)\
 axes = pylab.gca()\
 axes.set_xlim(-1,1)\
 axes.set_ylim(-1,1)\
-line,=axes.plot(xdata,ydata,'b-')\    
+line,=axes.plot(xdata,ydata,'b-') \    
 pylab.subplot(111)\
 for d in range (N):\
     xdata.append(M[d,0])\
@@ -157,8 +155,8 @@ fig=plt.show()\
 
 
 
-### The trajectory of point(represents one material) at space in 3T :
-
+### The trajectory of point[at row=0,at col=0](point at 2D has one color represents one material) at space in 3T :
+### for reprentation of another point which may have another color that refers to another material refers to T1 & T2 different in ddrawing the trajectory.
 ![](onepoint.gif)
 
 *![](./3001,forT1[0],ofwhitecolor.PNG)
