@@ -9,7 +9,7 @@
 ## Reham Abdelfatah
 ## Nancy Salah
 
-# Trajectory at any point in the phantom:
+# a) Trajectory at any point in the phantom:
 Each color in MRI image represents a different material, each material has different T1&T2(Relaxation and decay time), we have an image with shape 4by4 which means 16 pixel each pixel represents the value of color that carries, each color value refers to kind of material with different value of T1&T2 according to the B0 value of the external source of magnetic field, so here we will select any point of the phantom that we has then take its T1&T2 values in drawing the trajectory of this point from the space.
 
 ###  Source Code :
