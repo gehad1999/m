@@ -30,8 +30,8 @@ from matplotlib import animation\
 from IPython.display import HTML
 
 ### Input image is in shape 400x600,(widthxheight).
-FILENAME='wvsb.png'\
-#'LA' for grey scale of image 'RGB' for rgb\ 
+FILENAME='wvsb.png'
+# 'LA' for grey scale of image 'RGB' for rgb\ 
 im=Image.open(FILENAME).convert('LA')\
 print (im)
 ### Converting the opened image into array to read its data.
@@ -83,7 +83,6 @@ for index, item in enumerate(T1):
         T2[index]= 10000
 print('T1 for points of our phantom',T1)\
 print('T2 for points of our phantom',T2)\
-#print(data2)\
 print('The array of color value for each point in the phantom shape',asarray(arr).shape)\
 print('The array of color value for each point in the phantom size',asarray(arr).size)\
 print('The array of color value for each point in the phantom type',asarray(arr).dtype)\
@@ -102,7 +101,7 @@ T1 = T1[0]\
 T2 = T2[0]\
 x=[0,1,2]\
 for d in range(len(x)):\
-    df.append(3001)\   
+    df.append(3001)   
 N = math.ceil(T/dT)+1\
 result=[None]*2\
 def freepression(T,T1,T2,df,i):\
@@ -130,7 +129,7 @@ def decay(i):\
     M[k,:] = np.dot(A,M[k-1,:]) + B\
   return (M)\
 M = decay(0)\
-print('At T1[0]&T2[0] relates to the first point at row=0,col=0,from phantom 4*4 which represents color refers to one material')\
+print('At T1[0]&T2[0] relates to the first point at row=0,col=0,from phantom 4by4 which represents color refers to one material')\
 print('T1[0]&T2[0]--> the first values in our lists to represent data[row=0][col=0] of our phantom of shape(4*4)')\
 print('At B0 in mT =',df,'\nFor this strength of MF T1[0]=',T1,' T2[0]=',T2)\
 xdata = []\
