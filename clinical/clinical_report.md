@@ -25,10 +25,10 @@
 * In emergency departement.
 ![](retrieve_installation_report_in_Emer.gif)
 ### Daily Inspection Report 
-* In emergency departement.
+* In emergency departement./
 ![](make_daily_inspec_for_equ_in_emer.gif)
 ### Scrapping Report:
-* In Cardiology department it also exist for emergency and surgery departement.
+* In Cardiology department it also exist for emergency and surgery departement./
 ![](scrapping_make&retrieve_in_cardiology.gif)
 ##  Here represinting installation report for equipment from cardiology department
 ![](retrieve_installation_cardiology.gif)
